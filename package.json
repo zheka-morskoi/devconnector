@@ -8,7 +8,7 @@
     "server": "nodemon server.js"
   },
   "keywords": [],
-  "author": "Jack Sparrow",
+  "author": "Brad Traversy",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
