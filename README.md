@@ -15,16 +15,16 @@ module.exports = {
 
 ### Author
 
-Brad Traversy
-[Traversy Media](http://www.traversymedia.com)
-
-### Editor
-
 [Evgeniy Stupachenko](https://www.linkedin.com/in/evgeniy-stupachenko-715061b8/)
+
+### Author of original
+
+Brad Traversy [Traversy Media](http://www.traversymedia.com)
+[original version here](https://github.com/bradtraversy/devconnector)
 
 ### Version
 
-0.4.1
+0.5
 
 ### License
 
@@ -33,4 +33,5 @@ This project is licensed under the MIT License
 ---
 
 ## note
+
 it's not finished yet!
