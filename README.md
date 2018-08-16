@@ -19,8 +19,8 @@ module.exports = {
 
 ### Author of original
 
-Brad Traversy [Traversy Media](http://www.traversymedia.com)
-[original version here](https://github.com/bradtraversy/devconnector)
+Brad Traversy [Traversy Media](http://www.traversymedia.com)  
+([original version here](https://github.com/bradtraversy/devconnector))
 
 ### Version
 
