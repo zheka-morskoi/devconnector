@@ -1,6 +1,6 @@
 # DevConnector
 
-> Small social network app built with the MERN stack. This is part of [Brad Traversy's](https://www.udemy.com/user/brad-traversy) "MERN Stack Front To Back" Udemy course
+> Small social network app built with the MERN stack. This is part of [Brad Traversy's](https://www.udemy.com/user/brad-traversy) "MERN Stack Front To Back" Udemy course. Static bootstrap-theme is taken from the same course.
 
 You will need to create a keys.js in the server config folder with
 
