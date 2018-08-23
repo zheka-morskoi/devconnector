@@ -24,7 +24,7 @@ Brad Traversy [Traversy Media](http://www.traversymedia.com)
 
 ### Version
 
-0.5
+0.6
 
 ### License
 
