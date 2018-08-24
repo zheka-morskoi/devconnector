@@ -12,9 +12,6 @@ class Login extends Component {
       password: '',
       errors: {}
     };
-
-    // this.onChange = this.onChange.bind(this);
-    // this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -23,32 +20,18 @@ class Login extends Component {
     }
   }
 
-  /*   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
-    }
-
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
-    }
-  } */
   componentDidUpdate(prevProps) {
-    console.log('componentDidUpdate');
     if (prevProps.auth.isAuthenticated !== this.props.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
-      console.log('ok');
     }
 
     if (prevProps.errors !== this.props.errors) {
       this.setState({ errors: this.props.errors });
-      console.log('error');
     }
   }
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    // console.log(this);
-    // console.log(e.target.value);
   };
 
   onSubmit = e => {
@@ -60,8 +43,6 @@ class Login extends Component {
     };
 
     this.props.loginUser(userData);
-    // console.log(this);
-    // console.log(userData);
   };
 
   render() {
