@@ -9,9 +9,6 @@ class Dashboard extends Component {
   componentDidMount() {
     this.props.getCurrentProfile();
   }
-  /*   componentDidUpdate() {
-    console.log(this.props.allState);
-  } */
 
   render() {
     const { user } = this.props.auth;
@@ -59,7 +56,6 @@ Dashboard.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  // allState: state,
   profile: state.profile,
   auth: state.auth
 });
