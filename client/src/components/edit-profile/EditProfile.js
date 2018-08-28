@@ -29,22 +29,19 @@ class EditProfile extends Component {
       instagram: '',
       errors: {}
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
   componentDidMount() {
     this.props.getCurrentProfile();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
 
-    if (nextProps.profile.profile) {
-      const profile = nextProps.profile.profile;
+    if (prevProps.profile.profile !== this.props.profile.profile) {
+      const profile = this.props.profile.profile;
 
       // Bring skills array back to CSV
       const skillsCSV = profile.skills.join(',');
@@ -90,12 +87,10 @@ class EditProfile extends Component {
         youtube: profile.youtube,
         instagram: profile.instagram
       });
-
-      console.log(profile);
     }
   }
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
 
     const profileData = {
@@ -115,11 +110,11 @@ class EditProfile extends Component {
     };
 
     this.props.createProfile(profileData, this.props.history);
-  }
+  };
 
-  onChange(e) {
+  onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
   render() {
     const { errors, displaySocialInputs } = this.state;

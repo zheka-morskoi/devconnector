@@ -28,18 +28,15 @@ class CreateProfile extends Component {
       instagram: '',
       errors: {}
     };
-
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors });
     }
   }
 
-  onSubmit(e) {
+  onSubmit = e => {
     e.preventDefault();
 
     const profileData = {
@@ -59,11 +56,11 @@ class CreateProfile extends Component {
     };
 
     this.props.createProfile(profileData, this.props.history);
-  }
+  };
 
-  onChange(e) {
+  onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  }
+  };
 
   render() {
     const { errors, displaySocialInputs } = this.state;
