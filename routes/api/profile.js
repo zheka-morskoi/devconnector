@@ -2,11 +2,15 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const passport = require('passport');
+const request = require('request');
 
 // Load Validation
 const validateProfileInput = require('../../validation/profile');
 const validateExperienceInput = require('../../validation/experience');
 const validateEducationInput = require('../../validation/education');
+
+//Load keys
+const KEYS = require('../../config/keys');
 
 // Load Profile Model
 const Profile = require('../../models/Profile');
@@ -99,6 +103,33 @@ router.get('/user/:user_id', (req, res) => {
     .catch(err =>
       res.status(404).json({ profile: 'There is no profile for this user' })
     );
+});
+
+// @route GET api/profile/github/:githubusername?per_page&sort
+// @desc Get github repos for given github username
+// @access Public
+router.get('/github/:githubusername', (req, res) => {
+  const username = req.params.githubusername;
+  const clientId = KEYS.githubId;
+  const clientSecret = KEYS.githubSecret;
+  const { per_page, sort } = req.query;
+  const address = `https://api.github.com/users/${username}/repos?per_page=${per_page}&sort=${sort}&client_id=${clientId}&client_secret=${clientSecret}`;
+  request(
+    {
+      uri: address,
+      method: 'GET',
+      followRedirect: true,
+      maxRedirects: 10,
+      headers: {
+        'User-Agent': 'zheka-morskoi'
+      }
+    },
+    (error, response, body) => {
+      if (!error && response.statusCode == 200) {
+        res.json(JSON.parse(body));
+      }
+    }
+  );
 });
 
 // @route   POST api/profile

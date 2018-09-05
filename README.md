@@ -8,6 +8,8 @@ You will need to create a keys.js in the server config folder with
 module.exports = {
   mongoURI: 'YOUR_OWN_MONGO_URI',
   secretOrKey: 'YOUR_OWN_SECRET'
+  githubId: 'YOUR_OWN_GITHUB_CLIENT_ID,
+  githubSecret: 'YOUR_OWN_GITHUB_CLIENT_SECRET'
 };
 ```
 
@@ -24,7 +26,7 @@ Brad Traversy [Traversy Media](http://www.traversymedia.com)
 
 ### Version
 
-0.8
+0.95
 
 ### License
 

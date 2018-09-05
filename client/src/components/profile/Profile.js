@@ -10,10 +10,25 @@ import Spinner from '../common/Spinner';
 import { getProfileByHandle } from '../../actions/profileActions';
 
 class Profile extends Component {
-  componentDidMount() {
+  /* componentDidMount() {
     if (this.props.match.params.handle) {
       this.props.getProfileByHandle(this.props.match.params.handle);
     }
+  } */
+  componentDidMount() {
+    const { handle } = this.props.match.params;
+    handle && this.props.getProfileByHandle(handle);
+  }
+
+  /* componentWillReceiveProps(nextProps) {
+    if (nextProps.profile.profile === null && this.props.profile.loading) {
+      this.props.history.push('/not-found');
+    }
+  } */
+  componentDidUpdate() {
+    this.props.profile.profile === null &&
+      !this.props.profile.loading &&
+      this.props.history.push('/not-found');
   }
 
   render() {
@@ -39,7 +54,9 @@ class Profile extends Component {
             education={profile.education}
             experience={profile.experience}
           />
-          <ProfileGithub />
+          {profile.githubusername ? (
+            <ProfileGithub username={profile.githubusername} />
+          ) : null}
         </div>
       );
     }
