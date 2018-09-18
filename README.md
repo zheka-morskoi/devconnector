@@ -26,14 +26,8 @@ Brad Traversy [Traversy Media](http://www.traversymedia.com)
 
 ### Version
 
-1.05
+1.2
 
 ### License
 
 This project is licensed under the MIT License
-
----
-
-## note
-
-it's not finished yet!
